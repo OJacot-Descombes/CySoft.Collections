@@ -14,40 +14,31 @@ namespace CySoft.Collections;
 /// Copyright (C) 2012 Olivier Jacot-Descombes (port to C#).
 /// </remarks>
 /// <typeparam name="T"></typeparam>
-public class IntervalHeap<TKey, TValue> : IMinHeap<TKey, TValue>, IMaxHeap<TKey, TValue>
+public class IntervalHeap<TKey, TValue>(int capacity) : IMinHeap<TKey, TValue>, IMaxHeap<TKey, TValue>
     where TKey : IComparable<TKey>
 {
     private const int DefaultCapacity = 64;
 
-    private TValue[] _data;
-    internal TKey[] _keys;
-    private int _capacity;
-    private int _size;
+    private TValue[] _data = new TValue[capacity];
+    internal TKey[] _keys = new TKey[capacity];
+    private int _size = 0;
 
     public IntervalHeap()
         : this(DefaultCapacity)
     {
     }
 
-    public IntervalHeap(int capacity)
-    {
-        _data = new TValue[capacity];
-        _keys = new TKey[capacity];
-        _capacity = capacity;
-        _size = 0;
-    }
-
     public void Add(TKey key, TValue value)
     {
         // If move room is needed, TKey array size
-        if (_size >= _capacity) {
-            _capacity *= 2;
+        if (_size >= capacity) {
+            capacity *= 2;
 
-            var newData = new TValue[_capacity];
+            var newData = new TValue[capacity];
             Array.Copy(_data, newData, _data.Length);
             _data = newData;
 
-            var newKeys = new TKey[_capacity];
+            var newKeys = new TKey[capacity];
             Array.Copy(_keys, newKeys, _keys.Length);
             _keys = newKeys;
         }
@@ -308,7 +299,7 @@ public class IntervalHeap<TKey, TValue> : IMinHeap<TKey, TValue>, IMaxHeap<TKey,
 
     public int Capacity
     {
-        get { return _capacity; }
+        get { return capacity; }
     }
 
     public override string ToString()

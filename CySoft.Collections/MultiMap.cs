@@ -29,7 +29,7 @@ public class MultiMap<TKey, TValue> : Dictionary<TKey, List<TValue>>
         if (TryGetValue(key, out List<TValue> valueList)) {
             valueList.Add(value);
         } else {
-            valueList = new List<TValue> { value };
+            valueList = [value];
             Add(key, valueList);
         }
     }

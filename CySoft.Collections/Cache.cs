@@ -9,12 +9,15 @@
 /// </remarks>
 /// <typeparam name="TKey"></typeparam>
 /// <typeparam name="TValue"></typeparam>
-public class Cache<TKey, TValue>
+/// <remarks>
+/// Creates a cache which holds the cached values for a limited time only.
+/// </remarks>
+/// <param name="maxCachingTime">Maximum time for which the a value is to be hold in the cache.</param>
+public class Cache<TKey, TValue>(TimeSpan maxCachingTime)
 {
     private Dictionary<TKey, CacheItem> _cache = new(100);
-    private readonly TimeSpan _maxCachingTime;
-    private readonly TimeSpan _flushingTime;
-    private DateTime _lastFlushing;
+    private readonly TimeSpan _flushingTime = TimeSpan.FromTicks(maxCachingTime.Ticks / 5);
+    private DateTime _lastFlushing = DateTime.Now;
 
     /// <summary>
     /// Creates a cache which holds the cached values for an infinite time.
@@ -22,17 +25,6 @@ public class Cache<TKey, TValue>
     public Cache()
         : this(TimeSpan.MaxValue)
     {
-    }
-
-    /// <summary>
-    /// Creates a cache which holds the cached values for a limited time only.
-    /// </summary>
-    /// <param name="maxCachingTime">Maximum time for which the a value is to be hold in the cache.</param>
-    public Cache(TimeSpan maxCachingTime)
-    {
-        _maxCachingTime = maxCachingTime;
-        _flushingTime = TimeSpan.FromTicks(maxCachingTime.Ticks / 5);
-        _lastFlushing = DateTime.Now;
     }
 
     /// <summary>
@@ -48,7 +40,7 @@ public class Cache<TKey, TValue>
             Flush();
         }
         if (_cache.TryGetValue(key, out CacheItem cacheItem) &&
-            DateTime.Now - cacheItem.CacheTime <= _maxCachingTime) {
+            DateTime.Now - cacheItem.CacheTime <= maxCachingTime) {
 
             return cacheItem.Item;
         }
@@ -61,7 +53,7 @@ public class Cache<TKey, TValue>
     {
         var newCache = new Dictionary<TKey, CacheItem>(Math.Max(100, _cache.Count / 2));
         foreach (KeyValuePair<TKey, CacheItem> item in _cache) {
-            if (DateTime.Now - item.Value.CacheTime < _maxCachingTime) {
+            if (DateTime.Now - item.Value.CacheTime < maxCachingTime) {
                 newCache.Add(item.Key, item.Value);
             }
         }

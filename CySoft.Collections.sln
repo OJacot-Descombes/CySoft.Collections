@@ -1,11 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32728.150
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CySoft.Collections", "CySoft.Collections\CySoft.Collections.csproj", "{F26535FD-9BF0-48BD-820B-C685740866D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CySoft.Collections", "CySoft.Collections\CySoft.Collections.csproj", "{F26535FD-9BF0-48BD-820B-C685740866D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CySoft.Collections.Geometry", "CySoft.Collections.Geometry\CySoft.Collections.Geometry.csproj", "{4AD2D4A2-7E54-4A6C-8594-D0DA1BD79770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CySoft.Collections.Geometry", "CySoft.Collections.Geometry\CySoft.Collections.Geometry.csproj", "{4AD2D4A2-7E54-4A6C-8594-D0DA1BD79770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

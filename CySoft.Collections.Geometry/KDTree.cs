@@ -231,12 +231,8 @@ public class KDTree<T> : KDNode<T>, ICollection<KDEntry<T>>
 
     public void CopyTo(KDEntry<T>[] array, int arrayIndex)
     {
-        if (array == null) {
-            throw new ArgumentNullException(nameof(array));
-        }
-        if (arrayIndex < 0) {
-            throw new ArgumentOutOfRangeException(nameof(arrayIndex));
-        }
+        ArgumentNullException.ThrowIfNull(array);
+        ArgumentOutOfRangeException.ThrowIfNegative(arrayIndex);
         if (arrayIndex >= array.Length) {
             throw new ArgumentException("`arrayIndex` is equal to or greater than the length of `array`");
         }

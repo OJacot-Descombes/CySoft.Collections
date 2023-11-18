@@ -30,12 +30,8 @@ public abstract class KDCollectionBase<T, U> : IEnumerable<U>
 
     public void CopyTo(U[] array, int arrayIndex)
     {
-        if (array == null) {
-            throw new ArgumentNullException(nameof(array));
-        }
-        if (arrayIndex < 0) {
-            throw new ArgumentOutOfRangeException(nameof(arrayIndex));
-        }
+        ArgumentNullException.ThrowIfNull(array);
+        ArgumentOutOfRangeException.ThrowIfNegative(arrayIndex);
         if (arrayIndex >= array.Length) {
             throw new ArgumentException("`arrayIndex` is equal to or greater than the length of `array`");
         }
