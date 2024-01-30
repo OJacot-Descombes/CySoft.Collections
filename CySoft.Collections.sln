@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32728.150
@@ -6,6 +5,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CySoft.Collections", "CySoft.Collections\CySoft.Collections.csproj", "{F26535FD-9BF0-48BD-820B-C685740866D7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CySoft.Collections.Geometry", "CySoft.Collections.Geometry\CySoft.Collections.Geometry.csproj", "{4AD2D4A2-7E54-4A6C-8594-D0DA1BD79770}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{602A5037-6032-4C19-88F2-D23DC4A4F91F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +22,10 @@ Global
 		{4AD2D4A2-7E54-4A6C-8594-D0DA1BD79770}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AD2D4A2-7E54-4A6C-8594-D0DA1BD79770}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AD2D4A2-7E54-4A6C-8594-D0DA1BD79770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{602A5037-6032-4C19-88F2-D23DC4A4F91F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{602A5037-6032-4C19-88F2-D23DC4A4F91F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{602A5037-6032-4C19-88F2-D23DC4A4F91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{602A5037-6032-4C19-88F2-D23DC4A4F91F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
