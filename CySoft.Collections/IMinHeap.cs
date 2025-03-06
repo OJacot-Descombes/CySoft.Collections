@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CySoft.Collections;
+﻿namespace CySoft.Collections;
 
 /// <summary>
 /// Interface for a min-heap.
